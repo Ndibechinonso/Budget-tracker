@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+.navbar{ 
+    display: flex;
+    flex-direction: row;
+    background: linear-gradient(black,#222628, #7C9399);
+    width: 100%;
+   color: white;
+    margin-bottom: 20px;
+    padding-top: 10px;
+padding-bottom: 10px;
+}
+
+.log-in {
+    margin: auto;
+    font-size: 18px;
+}
+.mini-bar {
+    display: flex;
+    flex-direction: row;
+
+    margin-left: auto;
+align-items: center;
+padding-right: 20px;
+padding-left: 10px;
+}
+.profile {
+    margin-right: 10px;
+}
+.menu {
+    margin-top: 70px;
+    margin-bottom: 20px;
+    margin-left: 60px;
+    font-weight: 700;
+}
+.menu div {
+    background-color:rgba(70, 71, 73, 0.3);
+    color:rgb(70, 71, 73);
+width: 250px;
+margin-bottom: 3px;
+padding-top: 10px;
+padding-bottom: 10px;
+padding-left: 5px;
+border-top-left-radius: 5px;
+border-bottom-left-radius: 5px;
+}
+.display {
+    display: flex;
+    flex-direction: row;
+}
+   
+.work-field {
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid;
+   
+    border-image: 
+    linear-gradient(
+      to bottom, 
+    #cccccc, 
+      rgba(0, 0, 0, 0)
+    ) 1 5%;
+    
+    width: 1250px;
+    border-radius: 15px;
+    box-shadow: 5px -10px 10px -5px #cccccc;
+ 
+}
+.work-field-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.work-field-body div {
+    margin-bottom: 10px;
+}
+
+.bd {
+    display: flex;
+    flex-direction: row;
+}
+.balanceAmount, .budgetAmount, .expenseAmount {
+    margin-left: auto;
+}
+.view-notes {
+text-align: center;
+margin-bottom: 5px;
+}
+textarea {
+    background: #F7F89F;
+    display: block;
+    margin: auto;
+    min-height: 150px;
+}
+.save {
+    padding: 10px 20px;
+    margin-top: 20px;
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background: -webkit-linear-gradient(top, #33687e, #224857);
+    background-color: #1b84a5;
+    color: white;
+}
+h2{
+    background: linear-gradient(white,#cbe58b);
+    margin-top: 0;
+}
+.sticky-notes {
+    border: solid 10px #cbe58b;
+    margin-left: 60px;
+
+}
+input {
+    width: 1200px;
+}
+.month-div {
+    display: flex;
+    flex-direction: column;
+}
+.year-budget, .day-budget, .week-budget {
+    background-color: #cdcdcd;
+    width: 1200px;
+    
+}
+
+#yearly-budget, #weekly-budget, #daily-budget {
+  color: red;
+  text-align: right;
+  min-height: 20px;
+}
+
+.expense-form button {
+    background: #b80c09;
+    border: none;
+    border-radius: 6px;
+    color: #ffffff;
+    padding: 10px 30px;
+    cursor: pointer;
+    text-transform: capitalize;
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  #expenseEditForm {
+    display: none;
+    width: 100%;
+  }
+
+  .noteimg {
+      width: 60px;
+      margin-left: 30px;
+      display: flex;
+      flex-direction: row;
+  }
+  img {
+      width: 100%;
+      object-fit: cover;
+  }
+  .fa-trash-alt{
+      color: red;
+  }
+  .fa-edit {
+      color: green;
+  }
+
+  .imgDiv {
+      margin-left: 30px;
+  }
+  .noteHeader{
+      align-self: center;
+  }

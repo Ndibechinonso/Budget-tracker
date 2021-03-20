@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUDGET EXPENSE TRACKER</title>
+</head>
+<body>
+    <nav class="navbar">
+        <h1>BudgExTracker</h1>  <div class="log-in">Logged in as:</div> <div class="mini-bar"><div class="profile"><a>My Profile</a></div> <div>Logout</a></div></div>
+    </nav>
+<div class="display">
+    <div>
+    <aside class="menu">
+        <div><a>My ACCOUNT</a></div>  <div><a>My INCOME</a></div> <div><a>My BUDGET</a></div> <div><a>REPORT</a></div>
+    </aside>
+    <div class="sticky-notes"> <form action="" id="noteForm"><h2>Sticky Note</h2><div class="view-notes"><div class='viewnotes'>View Notes</div></div><textarea id="notes"></textarea><button type="submit" class="save">Save</button></form> </div>
+</div>
+<div class="work-field"><div class="work-field-header"><div id='expenseDisplay'>Expense</div> <div><a>Cash Flow</a></div> <div id='budgetDisplay'>Budget</div>  <div id='accountDisplay'>Account</div></div> 
+<div class="work-field-body"><div class="bd"><div>Budget</div><div class="budgetAmount">0.00</div></div>  <div class="bd"><div>Expense</div><div class="expenseAmount">0.00</div></div>     <div class="bd"> <div>Balance</div><div class="balanceAmount">0.00</div></div> </div>
+</div>
+
+</div>
+
+    <div class="budget">
+        <div class="month-div">Monthly Budget<input id="monthly-budget" type="number"></div> <div class="year-budget">Yearly Budget<p id="yearly-budget"></p></div> <div class="week-budget">Weekly Budget<p id="weekly-budget"></p></div> <div class="day-budget">Daily Budget<p id="daily-budget"></p></div>
+    </div>
+    <div class="testDisplay"></div>
+
+    <div class="edit-form" id="editForm">
+        <form action="" id="saveEdit">
+           <div class="">
+               <label for="">Edit Note</label> <br />
+               <input type="text" id="editNote" />
+           </div>
+        
+           <button type="submit">Save changes</button>
+        </form>
+     </div>
+
+
+     <div class="expense-form" id="expense-form">
+        <form action="" id="expForm">
+          <div class="">
+            <label for="">please enter your expense</label> <br />
+            <input type="text" id="expName" />
+          </div>
+          <div class="">
+            <label for="">please enter expense amount</label> <br />
+            <input type="number" id="expNumber" />
+          </div>
+          <button type="submit" id="submitExpen">Add expense</button>
+        </form>
+        <button onclick="callBudget()" id="bug">
+          Back to add budget ->
+        </button>
+      </div>
+
+
+      <div class="expenseEdit-form" id="expenseEditForm">
+        <form action="" id="expenseSaveEdit">
+          <div class="">
+            <label for="">Edit your expense</label> <br />
+            <input type="text" id="editExpName" />
+          </div>
+          <div class="">
+            <label for="">Edit expense amount</label> <br />
+            <input type="number" id="editExpNumber" />
+          </div>
+          <button type="submit">Save changes</button>
+        </form>
+      </div>
+
+      
+      <div class="testDisplay2"></div>
+
+
+
+</body>
+<script src="script.js"></script>
+</html>   
