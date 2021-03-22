@@ -15,6 +15,10 @@
 padding-bottom: 10px;
 }
 
+.topMenu {
+    font-size: 18px;
+    font-weight: 500;
+}
 .log-in {
     margin: auto;
     font-size: 18px;
@@ -35,6 +39,7 @@ padding-left: 10px;
     margin-top: 70px;
     margin-bottom: 20px;
     margin-left: 60px;
+    font-size: 20px;
     font-weight: 700;
 }
 .menu div {
@@ -51,6 +56,7 @@ border-bottom-left-radius: 5px;
 .display {
     display: flex;
     flex-direction: row;
+    max-width: 100vw;
 }
    
 .work-field {
@@ -104,8 +110,8 @@ textarea {
     margin: auto;
     margin-top: 20px;
     margin-bottom: 20px;
-    background: -webkit-linear-gradient(top, #33687e, #224857);
-    background-color: #1b84a5;
+    background: -webkit-linear-gradient(top, #000000, #101010);
+    background-color: #010101;
     color: white;
 }
 h2{
@@ -123,10 +129,13 @@ input {
 .month-div {
     display: flex;
     flex-direction: column;
+    font-size: 18px;
 }
 .year-budget, .day-budget, .week-budget {
     background-color: #cdcdcd;
-    width: 1200px;
+    padding-left: 10px;
+    padding-top: 5px;
+    border-radius: 5px;
     
 }
 
@@ -137,7 +146,7 @@ input {
 }
 
 .expense-form button {
-    background: #b80c09;
+    background: #010101;
     border: none;
     border-radius: 6px;
     color: #ffffff;
@@ -148,8 +157,12 @@ input {
     font-weight: 400;
   }
 
+  #expense-form {
+    width: 100%;
+    
+  }
   #expenseEditForm {
-    display: none;
+
     width: 100%;
   }
 
@@ -175,4 +188,148 @@ input {
   }
   .noteHeader{
       align-self: center;
+      font-weight: 500;
+  }
+  
+  .notes {
+      font-size: 18px;
+  }
+  .hidden {
+      display: none;
+  }
+
+  .modal{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    animation-name: fadeIn;
+    animation-duration: 0.4s;
+    text-transform: capitalize;
+    font-weight: 600;
+  }
+
+  .modal-content{
+    position: fixed;
+    top: 20%;
+    left: 25%;
+    background-color: #fefefe;
+    width: 50%;
+    min-height: 40px;
+    animation-name: slideIn;
+    animation-duration: 0.4s;
+  }
+
+  .modal-header {
+    padding: 2px 16px;
+    border-bottom: 2px solid gray;
+  }
+
+
+  .budgetHtmlDisplay{
+    padding-left: 20px;
+    padding-right: 20px;
+
+  }
+  
+  .budget {
+      padding-top: 30px;
+  }
+
+  .close, .close2 {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #000;
+  }
+  .modal-body {
+    padding: 2px 16px;
+  }
+
+  #bug {
+    font-size: 14px;
+    background: none;
+    color: #04458f;
+    margin: 10px 0px 15px 10px;
+    text-align: justify;
+    padding: 0;
+  }
+  .inputs {
+    width: 95%;
+    padding: 8px 0;
+    border-radius: 6px;
+    border: 1px solid gray;
+    margin: 20px 0;
+    padding-left: 5px;
+    color: #495057;
+    outline: 0;
+  }
+  .editInput {
+      width: 95%;
+
+  }
+
+  #expenseEditForm, #editForm{
+    display: none;
+    width: 100%;
+
+  }
+  #editForm button, #editForm button {
+    background: #b80c09;
+    border: none;
+    border-radius: 6px;
+    color: #ffffff;
+    padding: 10px 30px;
+    cursor: pointer;
+    text-transform: capitalize;
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+
+  #editForm button {
+    margin: 20px;
+      
+  }
+
+  .editForm {
+      padding-left: 20px;
+  }
+  .expValue {
+      display: flex;
+      flex-direction: row;
+      
+      justify-content: space-between;
+  }
+
+  .edit_delete_column {
+      display: flex;
+      flex-direction: column;
+  }
+ 
+  .indicator {
+      border-bottom: 3px solid #7C9399;
+  }
+  .budgetError {
+      text-align: center;
+      color: red;
+      font-size: 18px;
+  }
+
+  .menuIndicator {
+    background-color: #010101 !important;
+    color: white !important;
+  }
+  .budgetInput {
+      margin-top: 0;
+      font-size: 18px;
+      font-style: italic;
+      border: none;
   }
