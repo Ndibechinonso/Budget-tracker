@@ -33,11 +33,12 @@
                 <h2>Welcome to SpeKer</h2>
                 <p>Budget your finances to know where your money is going. SpeKer is a complete online money management
                     tool
-                    designed to keep track of all your expenditures(Spend Checker) from your computer, mobile phone, or
+                    designed to keep track of all your expenditures (Spend Checker) from your computer, mobile phone, or
                     iPad. Receive reminders to your phone or email when your bills are due. Get started for Free!</p>
             </div>
         </div>
 
+        
         <div id="loginModal" class="modal2">
             <!-- Modal content -->
             <div class="modal-content2">
@@ -59,7 +60,7 @@
                             <div class='logoutflex'><button>Login</button> </div>
                         </div>
                     </form>
-                </div>
+                </div> 
             </div>
         </div>
     </div>
@@ -170,6 +171,9 @@
 
                 <!-- budget form -->
                 <div class="budgetHtmlDisplay">
+                    <span class="close">&times;</span>
+                    <form id='budgetForm'>
+
                     <div class="budget">
                         <div class="month-div">Monthly Budget<input id="monthly-budget" type="number"
                                 class="inputs budgetInput"></div>
@@ -180,6 +184,9 @@
                         <div class="day-budget">Daily Budget<p id="daily-budget"></p>
                         </div>
                     </div>
+                    <button class='budgetFormButton'>Add Budget</button>
+
+                </form>
                 </div>
 
                 <!-- note edit form -->

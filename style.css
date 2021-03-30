@@ -106,7 +106,9 @@ cursor: pointer;
 .bd {
     display: flex;
     flex-direction: row;
+   
 }
+
 
 .naira {
     margin-right: 5px;
@@ -123,6 +125,7 @@ cursor: pointer;
 .budgetDeficit {
     color: red;
     text-align: center;
+    font-weight: 600;
 }
 .view-notes {
 text-align: center;
@@ -315,6 +318,10 @@ input {
 
   }
   
+  .budgetFormButton {
+      padding: 10px 20px;
+      margin-bottom: 20px;
+  }
   .budget {
       padding-top: 30px;
   }
