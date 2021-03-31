@@ -675,12 +675,20 @@ input {
   flex-direction: row;
   padding-left: 300px;
 }
+@media only screen and (max-width: 1500px) {
+  .dashboard {
+    padding-left: 80px;
+    
+  }
+  .budgetIntro {
+    margin-left: 80px;
 
+  }
+  
+}
 
 @media only screen and (max-width: 1100px) {
-  .dashboard {
-    padding-left: 350px;
-  }
+  
   .midPage .imgDiv {
     display: none;
   }
@@ -689,7 +697,6 @@ input {
     right: 20px;
   }
   .budgetIntro {
-    margin-left: 350px;
     top: 10px;
   }
   #loginInitiator {
@@ -700,12 +707,6 @@ input {
   .display {
     display: flex;
     flex-direction: column;
-  }
-  .dashboard {
-    padding-left: 100px;
-  }
-  .budgetIntro {
-    margin-left: 100px;
   }
   .menu {
     display: flex;
