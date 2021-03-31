@@ -533,7 +533,6 @@ const addBudget = () => {
   removeIndicator()
   workFieldHeader.classList.remove('hidden')
   menuIndicatorRemoval()
-
   budgetDisplay.classList.add('indicator')
   expenseEditForm.style.display = 'none'
   editForm.style.display = "none"

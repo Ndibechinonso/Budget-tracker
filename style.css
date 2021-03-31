@@ -476,11 +476,6 @@ aside i {
 button a {
   text-decoration: none;
 }
-.name {
-  font-size: 48px;
-  font-weight: 700;
-  margin-left: 60px;
-}
 .loginlogo {
   font-size: 48px;
   margin-top: 30px;
@@ -674,7 +669,11 @@ input {
 .stickyLink {
   display: none;
 }
-
+.name {
+  font-size: 48px;
+  font-weight: 700;
+  margin-left: 60px;
+}
 @media only screen and (max-width: 1600px) {
   .dashboard {
     padding-left: 30px;
