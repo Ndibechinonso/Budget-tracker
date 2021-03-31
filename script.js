@@ -382,9 +382,10 @@ function calcExpenses() {
   let totalExp = 0;
   let details = localStorage.getItem("userExp")
   details = JSON.parse(details)
+  if(details) {
   for (i = 0; i < details.length; i++) {
     totalExp += details[i].number;
-  }
+  } }
   expenseAmount.innerText = totalExp;
   expenseTotal.innerText = totalExp;
 }
