@@ -492,13 +492,7 @@ button a {
   font-size: 24px;
   max-width: 350px;
 }
-.dashboard {
-  background: linear-gradient(black, #222628, #7c9399);
-  min-height: 50vh;
-  display: flex;
-  flex-direction: row;
-  padding-left: 300px;
-}
+
 .buttonDiv {
   margin-left: auto;
 }
@@ -673,6 +667,13 @@ input {
   font-size: 48px;
   font-weight: 700;
   margin-left: 60px;
+}
+.dashboard {
+  background: linear-gradient(black, #222628, #7c9399);
+  min-height: 50vh;
+  display: flex;
+  flex-direction: row;
+  padding-left: 300px;
 }
 @media only screen and (max-width: 1600px) {
   .dashboard {
