@@ -90,9 +90,9 @@ login.addEventListener('submit', function (event) {
   userDetails[0] = userInfo;
   console.log(userInfo)
   console.log(userDetails)
-localStorage.setItem('loginInfo', JSON.stringify(userDetails))
- let userLogin = localStorage.getItem('loginInfo')
- userLogin = JSON.parse(userLogin)
+  localStorage.setItem('loginInfo', JSON.stringify(userDetails))
+  let userLogin = localStorage.getItem('loginInfo')
+  userLogin = JSON.parse(userLogin)
   user.innerHTML = `<p>${userLogin[0].email}<p>`
   accountDisplay.classList.add('indicator')
 })
@@ -140,10 +140,10 @@ function display() {
 }
 
 const passwordToggler = () => {
-  if(password.type == 'password') {
+  if (password.type == 'password') {
     password.type = 'text'
     showPassword.innerText = 'Hide Password'
-  } else if(password.type == 'text'){
+  } else if (password.type == 'text') {
     password.type = 'password'
     showPassword.innerText = 'Show Password'
   }
@@ -174,7 +174,7 @@ const profileDisplay = () => {
  `
 }
 
-profile.addEventListener('click', profileDisplay) 
+profile.addEventListener('click', profileDisplay)
 
 function notesDisplay() {
   let notesArray = localStorage.getItem('notes')
@@ -185,12 +185,12 @@ function notesDisplay() {
   workFieldHeader.classList.add('hidden')
   workFieldBody.innerHTML = `<div class="noteimg"><img src="https://www.beesapps.com/wp-content/uploads/2016/04/sticky-notes-2.jpg"><div class='noteHeader'>NOTES</div></div>`
   if (notesArray.length == 0) {
-  workFieldBody.innerHTML += `
+    workFieldBody.innerHTML += `
    <div class='noresult'>No results Found.</div>`
   }
-  else if(notes) {
-  for (var i = 0; i < notesArray.length; i++) {
-    workFieldBody.innerHTML += `
+  else if (notes) {
+    for (var i = 0; i < notesArray.length; i++) {
+      workFieldBody.innerHTML += `
       <div class="imgDiv">
         <div id=${notesArray[i].id} class="bd" >
           <div class='noteDiv'><p class='notesClass'>${notesArray[i].note}</p></div>
@@ -202,19 +202,20 @@ function notesDisplay() {
               <p>
        </div> 
        </div>
-          </div> `};}   
+          </div> `};
+  }
 }
 
 viewnotes.addEventListener('click', notesDisplay)
 
 stickyLink.addEventListener('click', () => {
-  if(stickyLink.innerText == 'Show Sticky Notes') {
-  stickyNotes.style.display = 'block' 
-  stickyLink.innerText = 'Hide Sticky Notes'
-} else {
-  stickyNotes.style.display = 'none' 
-  stickyLink.innerText = 'Show Sticky Notes'
-}
+  if (stickyLink.innerText == 'Show Sticky Notes') {
+    stickyNotes.style.display = 'block'
+    stickyLink.innerText = 'Hide Sticky Notes'
+  } else {
+    stickyNotes.style.display = 'none'
+    stickyLink.innerText = 'Show Sticky Notes'
+  }
 })
 
 function editNoteDetails(id) {
@@ -338,11 +339,11 @@ function delExpenseDetails(id) {
 
 function displayExp() {
   let details = localStorage.getItem("userExp")
-  if(details){
+  if (details) {
     details = JSON.parse(details)
-  workFieldBody.innerHTML = null;
-  for (i = 0; i < details.length; i++) {
-    workFieldBody.innerHTML += `
+    workFieldBody.innerHTML = null;
+    for (i = 0; i < details.length; i++) {
+      workFieldBody.innerHTML += `
     <div class="expValue" id="${details[i].id}">
     <div class='edit_delete_column'>
       <div id="expTitleName" class="exp"><p>${details[i].name}</p></div>
@@ -355,27 +356,28 @@ function displayExp() {
         </p>
       </div>
     </div>
-  `;}
+  `;
+    }
   }
 }
 
-  // fxn to edit expenses
-  function getExpenseInfo(editExpName, editExpNumber, id) {
-    edited = details.findIndex((obj) => obj.id == id);
-    details[edited].name = editExpName;
-    details[edited].number = parseInt(editExpNumber);
-  }
+// fxn to edit expenses
+function getExpenseInfo(editExpName, editExpNumber, id) {
+  edited = details.findIndex((obj) => obj.id == id);
+  details[edited].name = editExpName;
+  details[edited].number = parseInt(editExpNumber);
+}
 
-  expenseSaveEdit.addEventListener("submit", (e) => {
-    e.preventDefault();
-    getExpenseInfo(editExpName.value, editExpNumber.value, expenseSaveEdit.children[2].id);
-    localStorage.setItem("userExp", JSON.stringify(details))
-    calcExpenses()
-    displayExp();
-    expenseEditForm.style.display = 'none'
-    modal.style.display = "none"
-  });
-  
+expenseSaveEdit.addEventListener("submit", (e) => {
+  e.preventDefault();
+  getExpenseInfo(editExpName.value, editExpNumber.value, expenseSaveEdit.children[2].id);
+  localStorage.setItem("userExp", JSON.stringify(details))
+  calcExpenses()
+  displayExp();
+  expenseEditForm.style.display = 'none'
+  modal.style.display = "none"
+});
+
 function calcExpenses() {
   let totalExp = 0;
   let details = localStorage.getItem("userExp")
@@ -390,9 +392,9 @@ function calcExpenses() {
 // fxn for balance
 function updateBalance() {
   let budget = localStorage.getItem('budget')
-budget = JSON.parse(budget)
+  budget = JSON.parse(budget)
   balanceAmount.innerText =
-  parseFloat(budget) - parseInt(expenseAmount.innerText);
+    parseFloat(budget) - parseInt(expenseAmount.innerText);
   budgetAmount.innerText = parseFloat(budget);
 }
 
@@ -413,9 +415,9 @@ budgetDisplay.addEventListener('click', function () {
   budgetDisplay.classList.add('indicator')
   workFieldBody.innerHTML = `<div class="bd">
             <div>Monthly Budget</div> <div class="budgetAmount"> &#8358; ${budget ? parseFloat(budget) : Number(0).toFixed(2)}</div> </div>
-          <div class="bd"> <div>Yearly Budget</div> <div class="expenseAmount"> &#8358; ${budget ? parseFloat(budget) * 12  : Number(0).toFixed(2)}</div> </div>
+          <div class="bd"> <div>Yearly Budget</div> <div class="expenseAmount"> &#8358; ${budget ? parseFloat(budget) * 12 : Number(0).toFixed(2)}</div> </div>
           <div class="bd"> <div>Weekly Budget</div> <div class="balanceAmount"> &#8358; ${budget ? parseFloat(budget) / 4.345273 : Number(0).toFixed(2)}</div> </div>
-          <div class="bd"> <div>Daily Budget</div> <div class="expenseAmount"> &#8358; ${budget ? parseFloat(budget)  / 30.421377: Number(0).toFixed(2)}</div> </div>
+          <div class="bd"> <div>Daily Budget</div> <div class="expenseAmount"> &#8358; ${budget ? parseFloat(budget) / 30.421377 : Number(0).toFixed(2)}</div> </div>
    `
 })
 
@@ -423,7 +425,7 @@ const acctDisplay = () => {
   let budget = localStorage.getItem('budget')
   budget = JSON.parse(budget)
   let details = localStorage.getItem("userExp")
-    details = JSON.parse(details)
+  details = JSON.parse(details)
   expenseTotalDiv.classList.add('hidden')
   calcExpenses()
   workFieldBody.innerHTML = null;
@@ -462,7 +464,7 @@ const menuIndicatorRemoval = () => {
 
 const budgetSaver = () => {
   localStorage.setItem('budget', JSON.stringify(monthlyBudget.value))
-} 
+}
 
 const budgetDisplayFunction = () => {
   let budget = localStorage.getItem('budget')
@@ -477,16 +479,18 @@ const budgetDisplayFunction = () => {
               <div>Monthly Budget</div> <div class="budgetAmount"> &#8358; ${budget ? parseFloat(budget) : Number(0).toFixed(2)}</div> </div>
             <div class="bd"> <div>Yearly Budget</div> <div class="expenseAmount"> &#8358; ${budget ? parseFloat(budget) * 12 : Number(0).toFixed(2)}</div> </div>
             <div class="bd"> <div>Weekly Budget</div> <div class="balanceAmount"> &#8358; ${budget ? parseFloat(budget) / 4.345273 : Number(0).toFixed(2)}</div> </div>
-            <div class="bd"> <div>Daily Budget</div>  <div class="expenseAmount"> &#8358; ${budget ? parseFloat(budget)  / 30.421377 : Number(0).toFixed(2)}</div> </div>   
+            <div class="bd"> <div>Daily Budget</div>  <div class="expenseAmount"> &#8358; ${budget ? parseFloat(budget) / 30.421377 : Number(0).toFixed(2)}</div> </div>   
   `
 }
 
-budgetMenu.addEventListener('click', () => {budgetDisplayFunction()
-  budgetMenu.classList.add('menuIndicator')} )
+budgetMenu.addEventListener('click', () => {
+  budgetDisplayFunction()
+  budgetMenu.classList.add('menuIndicator')
+})
 
 const acctMenuDisplay = () => {
   let budget = localStorage.getItem('budget')
-budget = JSON.parse(budget)
+  budget = JSON.parse(budget)
   removeIndicator()
   accountDisplay.classList.add('indicator')
   workFieldHeader.classList.remove('hidden')
@@ -509,26 +513,26 @@ let monthlyBudget = document.querySelector('#monthly-budget')
 let weeklyBudget = document.querySelector('#weekly-budget')
 let dailyBudget = document.querySelector('#daily-budget')
 
-  // fxn to update periodic budget as you input monthly budget
-  const updateBudget = () => {
-    if (monthlyBudget.value == '') {
-      weeklyBudget.innerHTML = Number(0).toFixed(2)
-      yearlyBudget.innerHTML = Number(0).toFixed(2)
-      dailyBudget.innerHTML = Number(0).toFixed(2)
-    } else {
-      weeklyBudget.innerHTML = monthlyBudget.value / 4.345273;
-      yearlyBudget.innerHTML = monthlyBudget.value * 12;
-      dailyBudget.innerHTML = monthlyBudget.value / 30.421377;
-    }
+// fxn to update periodic budget as you input monthly budget
+const updateBudget = () => {
+  if (monthlyBudget.value == '') {
+    weeklyBudget.innerHTML = Number(0).toFixed(2)
+    yearlyBudget.innerHTML = Number(0).toFixed(2)
+    dailyBudget.innerHTML = Number(0).toFixed(2)
+  } else {
+    weeklyBudget.innerHTML = monthlyBudget.value / 4.345273;
+    yearlyBudget.innerHTML = monthlyBudget.value * 12;
+    dailyBudget.innerHTML = monthlyBudget.value / 30.421377;
   }
+}
 
-  monthlyBudget.addEventListener('keyup', ()=> { updateBudget() })
+monthlyBudget.addEventListener('keyup', () => { updateBudget() })
 
 const addBudget = () => {
   removeIndicator()
   workFieldHeader.classList.remove('hidden')
   menuIndicatorRemoval()
- 
+
   budgetDisplay.classList.add('indicator')
   expenseEditForm.style.display = 'none'
   editForm.style.display = "none"
@@ -539,8 +543,10 @@ const addBudget = () => {
   budgetDisplayFunction()
 }
 
-addBudgetMenu.addEventListener('click', () => {addBudget()
-  addBudgetMenu.classList.add('menuIndicator')} )
+addBudgetMenu.addEventListener('click', () => {
+  addBudget()
+  addBudgetMenu.classList.add('menuIndicator')
+})
 
 budgetForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -571,6 +577,6 @@ logoutButton.addEventListener('click', function () {
   loginPage.style.display = 'block'
 })
 
-window.onload = function() {
+window.onload = function () {
   acctDisplay()
 }

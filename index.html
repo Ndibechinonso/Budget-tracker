@@ -8,7 +8,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BUDGET EXPENSE TRACKER</title>
+    <title>SpeKer BUDGET EXPENSE TRACKER</title>
+    <link rel="shortcut icon" type="image/jpg" href="/images/favicon.ico" />
+
 </head>
 
 <body>
@@ -38,7 +40,6 @@
             </div>
         </div>
 
-        
         <div id="loginModal" class="modal2">
             <!-- Modal content -->
             <div class="modal-content2">
@@ -53,14 +54,16 @@
                         <div class='password'>
                             <label for='password'>
                                 Password:
-                            </label><input name='password' type='password' id='password' required pattern='[A-Z][A-Za-z0-9]{8,}$' title='Password must start with a capital letter, may contain numbers and should be a minimum of 8'>
+                            </label><input name='password' type='password' id='password' required
+                                pattern='[A-Z][A-Za-z0-9]{8,}$'
+                                title='Password must start with a capital letter, may contain numbers and should be a minimum of 8'>
                         </div>
                         <p class='showPassword'>Show Password</p>
                         <div class="loginButton">
                             <div class='logoutflex'><button>Login</button> </div>
                         </div>
                     </form>
-                </div> 
+                </div>
             </div>
         </div>
     </div>
@@ -82,7 +85,7 @@
         <div class="display">
             <div class='sidebar'>
                 <aside class="menu">
-                    <div id='accountMenu' class="menuList"><i class="fas fa-coins"></i>   My ACCOUNT</div>
+                    <div id='accountMenu' class="menuList"><i class="fas fa-coins"></i> My ACCOUNT</div>
                     <div id='budgetMenu' class="menuList"><i class="fas fa-shekel-sign"></i> My BUDGET</div>
                     <div id='addBudgetMenu' class="menuList"><i class="fas fa-hand-holding-usd"></i> Add BUDGET</div>
                     <div id='addExpenseMenu' class="menuList"><i class="fas fa-shopping-basket"></i> Add EXPENSE</div>
@@ -165,7 +168,7 @@
                             </form>
                             <button id="budgetLink">
                                 <i class="fas fa-chevron-left"></i>
-                                 Back to add budget 
+                                Back to add budget
                             </button>
                         </div>
                     </div>
@@ -176,24 +179,24 @@
                     <span class="close">&times;</span>
                     <form id='budgetForm'>
 
-                    <div class="budget">
-                        <div class="month-div">Monthly Budget<input id="monthly-budget" type="number"
-                                class="inputs budgetInput" required></div>
-                        <div class="year-budget">Yearly Budget<p id="yearly-budget"></p>
+                        <div class="budget">
+                            <div class="month-div">Monthly Budget<input id="monthly-budget" type="number"
+                                    class="inputs budgetInput" required></div>
+                            <div class="year-budget">Yearly Budget<p id="yearly-budget"></p>
+                            </div>
+                            <div class="week-budget">Weekly Budget<p id="weekly-budget"></p>
+                            </div>
+                            <div class="day-budget">Daily Budget<p id="daily-budget"></p>
+                            </div>
                         </div>
-                        <div class="week-budget">Weekly Budget<p id="weekly-budget"></p>
-                        </div>
-                        <div class="day-budget">Daily Budget<p id="daily-budget"></p>
-                        </div>
-                    </div>
-                    <button class='budgetFormButton'>Add Budget</button>
+                        <button class='budgetFormButton'>Add Budget</button>
 
-                </form>
+                    </form>
                 </div>
 
                 <!-- note edit form -->
                 <div class="edit-form" id="editForm">
-                    
+
                     <div class="modal-header">
                         <span class="close">&times;</span>
                         <h2>Note Form</h2>
@@ -228,8 +231,6 @@
         </div>
 
     </div>
-
-
 </body>
 <script src="script.js"></script>
 
