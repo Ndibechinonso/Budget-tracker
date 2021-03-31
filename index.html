@@ -53,9 +53,9 @@
                         <div class='password'>
                             <label for='password'>
                                 Password:
-                            </label><input name='password' type='password' id='password' required>
+                            </label><input name='password' type='password' id='password' required pattern='[A-Z][A-Za-z0-9]{8,}$' title='Password must start with a capital letter, may contain numbers and should be a minimum of 8'>
                         </div>
-                        <p>Forgot Password ?</p>
+                        <p class='showPassword'>Show Password</p>
                         <div class="loginButton">
                             <div class='logoutflex'><button>Login</button> </div>
                         </div>
@@ -74,19 +74,20 @@
                 <div id='user'></div>
             </div>
             <div class="mini-bar">
-                <div class="profile"><a>My Profile</a></div>
+                <div class="profile">My Profile</div>
                 <div class='logout'> <button id='logoutButton'>Logout</button></div>
             </div>
         </nav>
 
         <div class="display">
-            <div>
+            <div class='sidebar'>
                 <aside class="menu">
-                    <div id='accountMenu' class="menuList">My ACCOUNT</div>
-                    <div id='budgetMenu' class="menuList">My BUDGET</div>
-                    <div id='addBudgetMenu' class="menuList">Add BUDGET</div>
-                    <div id='addExpenseMenu' class="menuList">Add EXPENSE</div>
+                    <div id='accountMenu' class="menuList"><i class="fas fa-coins"></i>   My ACCOUNT</div>
+                    <div id='budgetMenu' class="menuList"><i class="fas fa-shekel-sign"></i> My BUDGET</div>
+                    <div id='addBudgetMenu' class="menuList"><i class="fas fa-hand-holding-usd"></i> Add BUDGET</div>
+                    <div id='addExpenseMenu' class="menuList"><i class="fas fa-shopping-basket"></i> Add EXPENSE</div>
                 </aside>
+                <button class='stickyLink'>Show Sticky Notes</button>
 
                 <div class="sticky-notes">
                     <form action="" id="noteForm">
@@ -162,8 +163,9 @@
                                 </div>
                                 <button type="submit" id="submitExpen">Add expense</button>
                             </form>
-                            <button onclick="" id="bug">
-                                Back to add budget ->
+                            <button id="budgetLink">
+                                <i class="fas fa-chevron-left"></i>
+                                 Back to add budget 
                             </button>
                         </div>
                     </div>
@@ -176,7 +178,7 @@
 
                     <div class="budget">
                         <div class="month-div">Monthly Budget<input id="monthly-budget" type="number"
-                                class="inputs budgetInput"></div>
+                                class="inputs budgetInput" required></div>
                         <div class="year-budget">Yearly Budget<p id="yearly-budget"></p>
                         </div>
                         <div class="week-budget">Weekly Budget<p id="weekly-budget"></p>
@@ -191,6 +193,7 @@
 
                 <!-- note edit form -->
                 <div class="edit-form" id="editForm">
+                    
                     <div class="modal-header">
                         <span class="close">&times;</span>
                         <h2>Note Form</h2>
@@ -207,6 +210,7 @@
 
                 <!-- expense edit form -->
                 <div class="expenseEdit-form" id="expenseEditForm">
+                    <span class="close">&times;</span>
                     <form action="" id="expenseSaveEdit">
                         <div class="expenseEditDetails">
                             <label for="editExpName">Edit your expense</label> <br />
