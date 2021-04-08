@@ -43,6 +43,21 @@
 }
 .profile {
   margin-right: 10px;
+  display: flex;
+flex-direction: row;
+}
+.profile .day, .profile .night {
+ font-size: 24px;
+}
+.toggler{
+  background-color: white;
+  border: 4px solid blue;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.night{
+display: none;
 }
 .profile:hover,
 .showPassword:hover,
@@ -56,37 +71,10 @@
 button {
   cursor: pointer;
 }
-.profileHeader {
-  font-size: 18px;
-  font-weight: 600;
-  margin-left: 10px;
-}
-.profileFlex {
-  display: flex;
-  flex-direction: column;
-  min-width: 12%;
-}
-.profileFlex div {
-  min-height: 26px;
-}
-.inputFlex {
-  display: flex;
-  flex-direction: column;
-  min-width: 90%;
-  justify-items: center;
-}
-.details {
-  margin-left: auto;
-  margin-right: 0;
-}
 .showPassword {
   margin-left: 20px;
 }
-.profileRow {
-  display: flex;
-  flex-direction: row;
-  margin-top: 40px;
-}
+
 .menu {
   margin-top: 70px;
   margin-bottom: 20px;
@@ -105,6 +93,7 @@ button {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
+
 .display {
   display: flex;
   flex-direction: row;
@@ -208,9 +197,9 @@ textarea {
   background-color: #010101;
   color: white;
 }
-.modal-header h2,
-.sticky-notes h2,
-#editForm h2 {
+.modHeader,
+.stickyHead
+{
   background: linear-gradient(white, #cbe58b);
   padding: 10px 5px;
   margin-bottom: 5px;
@@ -333,16 +322,6 @@ img {
 .budgetHtmlDisplay {
   padding-left: 20px;
   padding-right: 20px;
-}
-.budgetFormButton {
-  padding: 10px 20px;
-  margin-bottom: 20px;
-}
-.updateButton {
-  display: flex;
-  justify-content: center;
-  position: relative;
-  right: 100px;
 }
 .budget {
   padding-top: 30px;
@@ -654,12 +633,6 @@ input {
 .modificationButtons button {
   background: none;
 }
-.profileContainer input {
-  min-width: 60%;
-  margin-left: auto;
-  margin-left: 15px;
-  max-height: 30px;
-}
 .stickyLink {
   display: none;
 }
@@ -675,16 +648,29 @@ input {
   flex-direction: row;
   padding-left: 300px;
 }
+.darkMode{
+  background-color: black;
+}
+.darkModeText{
+  color: white;
+}
+.whiteModeText{
+  color: black;
+}
+.modalBg{
+  background-color: #15172a;;;
+}
+.modHeaderBg {
+  background: #090a11;
+}
+
 @media only screen and (max-width: 1500px) {
   .dashboard {
     padding-left: 80px;
-    
   }
   .budgetIntro {
     margin-left: 80px;
-
   }
-  
 }
 
 @media only screen and (max-width: 1100px) {
@@ -815,8 +801,27 @@ input {
   .budgetIntro p {
     padding-right: 20px;
   }
-}
+  
 
+}
+@media only screen and (max-width: 500px) {
+  .modal-content {
+  
+    width: 80%;
+    left: 10%;
+ 
+  }
+  .noteModal-content {
+    left: 10%;
+    width: 80%;
+   
+  }
+  .sticky-notes {
+  
+    max-width: 80%;
+
+  }
+}
 @media only screen and (max-width: 350px) {
   .dashboard {
     padding-left: 20px;

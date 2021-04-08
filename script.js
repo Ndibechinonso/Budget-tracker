@@ -69,6 +69,8 @@ const stickyLink = document.querySelector('.stickyLink')
 
 const stickyNotes = document.querySelector('.sticky-notes')
 const showPassword = document.querySelector('.showPassword')
+const toggler = document.querySelector('.toggler')
+
 editForm.style.display = "none";
 
 
@@ -76,6 +78,7 @@ editForm.style.display = "none";
 loginInitiator.addEventListener('click', function () {
   loginModal.style.display = 'flex'
 })
+
 
 // function to get user email and display on dashbard
 login.addEventListener('submit', function (event) {
@@ -97,6 +100,7 @@ login.addEventListener('submit', function (event) {
   accountDisplay.classList.add('indicator')
 })
 
+
 // modal close fxn
 span.forEach((close) => {
   close.addEventListener('click', function () {
@@ -106,6 +110,7 @@ span.forEach((close) => {
 
 // fxn to remove modal on window click
 window.onclick = function (event) {
+
   if (event.target == modal) {
     modal.style.display = "none";
   }
@@ -130,7 +135,7 @@ function addNotes(note) {
 function display() {
   testDisplay.innerHTML = null;
   for (var i = 0; i < notesArray.length; i++) {
-    testDisplay.innerHTML += `<div id=${notesArray[i].id}>${notesArray[i].note}<p>${new Date().toLocaleDateString()}, ${new Date().toLocaleTimeString()}</p>  
+    testDisplay.innerHTML += `<div id=${notesArray[i].id}>${notesArray[i].note}<p>${new Date().toLocaleDateString()}, ${new Date().toLocaleTimeString()}</p>
        <p>
        <button id="${notesArray[i].id}" onclick="editNoteDetails(${notesArray[i].id})"> <i class="far fa-edit"></i>
        </button>
@@ -139,6 +144,7 @@ function display() {
   }
 }
 
+// to show and hide login password
 const passwordToggler = () => {
   if (password.type == 'password') {
     password.type = 'text'
@@ -151,31 +157,51 @@ const passwordToggler = () => {
 
 showPassword.addEventListener('click', passwordToggler)
 
-const profileDisplay = () => {
-  let userLogin = localStorage.getItem('loginInfo')
-  userLogin = JSON.parse(userLogin)
-  menuIndicatorRemoval()
-  workFieldBody.innerHTML = null;
-  workFieldHeader.classList.add('hidden')
-  workFieldBody.innerHTML += ` <div class='profileContainer'>
- <div class='profileHeader'>Profile Update</div>
-<form>
-  <div class='profileRow'>
-  <div class='profileFlex'> <div class='details'>Email Address:</div> <div class='details'>Password</div> <div class='details'>First Name:</div> <div class='details'>Last Name:</div> <div class='details'>Cellular Number</div> </div>
-  <div class='inputFlex'> <div><input type='text' value=${userLogin[0].email}></div>
-  <div><input type='text' value=${userLogin[0].password} id='passwordId'></div>
-   <div><input type='text'> </div>
-  <div> <input type='text'></div>
-  <div> <input type='number'></div> </div>
-</div>
-<div class='updateButton'><button class='budgetFormButton'>Update User</button></div>
-</form>
- <div>
- `
+
+const menu = document.querySelector('.menu')
+const stickyHead = document.querySelector('.stickyHead')
+const night = document.querySelector('.night')
+const day = document.querySelector('.day')
+const modalContent = document.querySelector('.modal-content')
+const modalHeader = document.querySelectorAll('.modHeader')
+
+function modeToggle() {
+  if (document.body.style.backgroundColor === 'white') {
+    document.body.style.backgroundColor = 'black'
+    document.body.classList.add('darkModeText')
+    menu.classList.add('darkModeText')
+    stickyHead.classList.add('whiteModeText')
+    modalContent.classList.add('darkModeText')
+    modalContent.classList.add('modalBg')
+    modalHeader.forEach((header) => {
+      header.classList.add('modHeaderBg')
+    })
+    span.forEach((close) => {
+      close.classList.add('darkModeText');
+    })
+    night.style.display = 'block'
+    day.style.display = 'none'
+  } else {
+    document.body.style.backgroundColor = 'white'
+    document.body.classList.remove('darkModeText')
+    menu.classList.remove('darkModeText')
+    stickyHead.classList.remove('whiteModeText')
+    modalContent.classList.remove('darkModeText')
+    modalContent.classList.remove('modalBg')
+    modalHeader.forEach((header) => {
+      header.classList.remove('modHeaderBg')
+    })
+    span.forEach((close) => {
+      close.classList.remove('darkModeText');
+    })
+    night.style.display = 'none'
+    day.style.display = 'block'
+  }
 }
+profile.addEventListener('click', modeToggle)
 
-profile.addEventListener('click', profileDisplay)
 
+// note display function
 function notesDisplay() {
   let notesArray = localStorage.getItem('notes')
   notesArray = JSON.parse(notesArray)
@@ -200,7 +226,7 @@ function notesDisplay() {
               </button>
               <button id="${notesArray[i].id}" onclick="delNoteDetails(${notesArray[i].id})"><i class="fas fa-trash-alt"></i></button>
               <p>
-       </div> 
+       </div>
        </div>
           </div> `};
   }
@@ -208,6 +234,7 @@ function notesDisplay() {
 
 viewnotes.addEventListener('click', notesDisplay)
 
+// function to display sticky note on small screen
 stickyLink.addEventListener('click', () => {
   if (stickyLink.innerText == 'Show Sticky Notes') {
     stickyNotes.style.display = 'block'
@@ -218,6 +245,7 @@ stickyLink.addEventListener('click', () => {
   }
 })
 
+// function to edit notes
 function editNoteDetails(id) {
   expenseEditForm.style.display = 'none'
   budgetHtmlDisplay.style.display = 'none'
@@ -309,10 +337,11 @@ expForm.addEventListener("submit", (e) => {
   addExpenses(expName.value, expNumber.value);
   calcExpenses()
   expenseTotal.innerText = `${expenseAmount.innerText}`
+  modal.style.display = "none"
+  expFormModal.style.display = 'none'
 });
 
 // display expenses to dom
-
 function editExpDetails(id) {
   budgetHtmlDisplay.style.display = 'none'
   expFormModal.style.display = 'none'
@@ -337,6 +366,7 @@ function delExpenseDetails(id) {
   expenseTotal.innerText = `${expenseAmount.innerText}`
 }
 
+// function for expenselist display
 function displayExp() {
   let details = localStorage.getItem("userExp")
   if (details) {
@@ -351,7 +381,7 @@ function displayExp() {
       </div>
       <div id="edit_delete">
         <p class='modificationButtons'>
-          <button id="${details[i].id}" onclick="editExpDetails(${details[i].id})"> <i class="far fa-edit"></i></button> 
+          <button id="${details[i].id}" onclick="editExpDetails(${details[i].id})"> <i class="far fa-edit"></i></button>
           <button id="${details[i].id}" onclick="delExpenseDetails(${details[i].id})"><i class="fas fa-trash-alt"></i></button>
         </p>
       </div>
@@ -382,10 +412,11 @@ function calcExpenses() {
   let totalExp = 0;
   let details = localStorage.getItem("userExp")
   details = JSON.parse(details)
-  if(details) {
-  for (i = 0; i < details.length; i++) {
-    totalExp += details[i].number;
-  } }
+  if (details) {
+    for (i = 0; i < details.length; i++) {
+      totalExp += details[i].number;
+    }
+  }
   expenseAmount.innerText = totalExp;
   expenseTotal.innerText = totalExp;
 }
@@ -434,10 +465,10 @@ const acctDisplay = () => {
   menuIndicatorRemoval()
   accountDisplay.classList.add('indicator')
   workFieldBody.innerHTML = `
-  <div class="bd">                                         
+  <div class="bd">
   <div>Budget</div> <div class="budgetAmount"> &#8358; ${budget ? parseFloat(budget) : Number(0).toFixed(2)}</div> </div>
 <div class="bd"> <div>Expenses</div> <div class="expenseAmount"> &#8358; ${details ? expenseAmount.innerText : Number(0).toFixed(2)}</div> </div>
-<div class="bd"> <div>Balance</div> <div class="balanceAmount"> &#8358; ${!budget && parseFloat(expenseAmount.innerText) == 0 ? Number(0).toFixed(2) : parseFloat(budget) - parseFloat(expenseAmount.innerText)}</div> 
+<div class="bd"> <div>Balance</div> <div class="balanceAmount"> &#8358; ${!budget && parseFloat(expenseAmount.innerText) == 0 ? Number(0).toFixed(2) : parseFloat(budget) - parseFloat(expenseAmount.innerText)}</div>
 </div>
  `
 }
@@ -480,7 +511,7 @@ const budgetDisplayFunction = () => {
               <div>Monthly Budget</div> <div class="budgetAmount"> &#8358; ${budget ? parseFloat(budget) : Number(0).toFixed(2)}</div> </div>
             <div class="bd"> <div>Yearly Budget</div> <div class="expenseAmount"> &#8358; ${budget ? parseFloat(budget) * 12 : Number(0).toFixed(2)}</div> </div>
             <div class="bd"> <div>Weekly Budget</div> <div class="balanceAmount"> &#8358; ${budget ? parseFloat(budget) / 4.345273 : Number(0).toFixed(2)}</div> </div>
-            <div class="bd"> <div>Daily Budget</div>  <div class="expenseAmount"> &#8358; ${budget ? parseFloat(budget) / 30.421377 : Number(0).toFixed(2)}</div> </div>   
+            <div class="bd"> <div>Daily Budget</div>  <div class="expenseAmount"> &#8358; ${budget ? parseFloat(budget) / 30.421377 : Number(0).toFixed(2)}</div> </div>
   `
 }
 
@@ -551,6 +582,9 @@ addBudgetMenu.addEventListener('click', () => {
 budgetForm.addEventListener('submit', (e) => {
   e.preventDefault();
   budgetSaver()
+  budgetHtmlDisplay.style.display = 'none'
+  modal.style.display = 'none'
+  budgetDisplayFunction()
 })
 
 const addExpense = () => {
@@ -579,4 +613,12 @@ logoutButton.addEventListener('click', function () {
 
 window.onload = function () {
   acctDisplay()
+  let userLogin = localStorage.getItem('loginInfo')
+  userLogin = JSON.parse(userLogin)
+  if (userLogin.length > 0) {
+    loginModal.style.display = 'none'
+    loginPage.style.display = 'none'
+    welcomePage.style.display = 'block'
+    user.innerHTML = `<p>${userLogin[0].email}<p>`
+  }
 }
