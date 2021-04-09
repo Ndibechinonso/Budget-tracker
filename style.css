@@ -350,6 +350,10 @@ aside i {
   text-align: justify;
   padding: 0;
 }
+.budgetFormButton{
+  padding: 10px 20px;
+  margin-bottom: 20px;
+}
 .inputs {
   width: 95%;
   padding: 8px 0;

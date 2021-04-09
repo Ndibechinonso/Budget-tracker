@@ -98,6 +98,7 @@ login.addEventListener('submit', function (event) {
   userLogin = JSON.parse(userLogin)
   user.innerHTML = `<p>${userLogin[0].email}<p>`
   accountDisplay.classList.add('indicator')
+  acctDisplay()
 })
 
 
