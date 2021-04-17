@@ -201,7 +201,7 @@ function modeToggle() {
 }
 profile.addEventListener('click', modeToggle)
 
-
+var displayNotesPage = false
 // note display function
 function notesDisplay() {
   let notesArray = localStorage.getItem('notes')
@@ -209,8 +209,10 @@ function notesDisplay() {
   expenseTotalDiv.classList.add('hidden')
   menuIndicatorRemoval()
   workFieldBody.innerHTML = null;
+
   workFieldHeader.classList.add('hidden')
   workFieldBody.innerHTML = `<div class="noteimg"><img src="https://www.beesapps.com/wp-content/uploads/2016/04/sticky-notes-2.jpg"><div class='noteHeader'>NOTES</div></div>`
+   displayNotesPage = true
   if (notesArray.length == 0) {
     workFieldBody.innerHTML += `
    <div class='noresult'>No results Found.</div>`
@@ -261,17 +263,22 @@ function editNoteDetails(id) {
   });
 }
 
+
 function alertTimer() {
   setTimeout(function () {
     noteSubmitAlert.style.display = 'none'
   }, 4000)
 }
 
+
 noteForm.addEventListener("submit", (e) => {
   e.preventDefault();
   notes.value && addNotes(notes.value)
   noteSubmitAlert.innerText = 'Your notes has been saved'
   alertTimer()
+ if(displayNotesPage) {
+  notesDisplay()
+ }
 })
 
 // fxn for note edit and delete
