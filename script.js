@@ -91,14 +91,16 @@ login.addEventListener('submit', function (event) {
     password: password.value
   }
   userDetails[0] = userInfo;
-  console.log(userInfo)
-  console.log(userDetails)
+
   localStorage.setItem('loginInfo', JSON.stringify(userDetails))
   let userLogin = localStorage.getItem('loginInfo')
   userLogin = JSON.parse(userLogin)
   user.innerHTML = `<p>${userLogin[0].email}<p>`
   accountDisplay.classList.add('indicator')
   acctDisplay()
+  setTimeout(() => {
+    localStorage.removeItem('loginInfo')
+  }, 3600000);
 })
 
 
@@ -166,6 +168,7 @@ const day = document.querySelector('.day')
 const modalContent = document.querySelector('.modal-content')
 const modalHeader = document.querySelectorAll('.modHeader')
 
+// function for night mode
 function modeToggle() {
   if (document.body.style.backgroundColor === 'white') {
     document.body.style.backgroundColor = 'black'
@@ -614,9 +617,11 @@ addExpenseMenu.addEventListener('click', () => {
 budgetLink.addEventListener('click', addBudget)
 
 logoutButton.addEventListener('click', function () {
+
   loginModal.style.display = 'none'
   welcomePage.style.display = 'none'
   loginPage.style.display = 'block'
+  localStorage.removeItem('loginInfo')
 })
 
 window.onload = function () {
